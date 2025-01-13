@@ -1,0 +1,10 @@
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/ClassManagementApplication.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/config/SecurityConfig.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/controllers/AlumnoController.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/controllers/CursoController.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/models/Alumno.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/models/Curso.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/repositories/AlumnoRepository.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/repositories/CursoRepository.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/services/AlumnoService.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/services/CursoService.java
