@@ -4,7 +4,12 @@
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/controllers/CursoController.java
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/models/Alumno.java
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/models/Curso.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/models/Role.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/models/User.java
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/repositories/AlumnoRepository.java
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/repositories/CursoRepository.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/repositories/RoleRepository.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/repositories/UserRepository.java
+/Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/security/JwtService.java
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/services/AlumnoService.java
 /Users/marcelomiranda/Documents/projects/testVulcan/backend/src/main/java/com/vulcan/class_management/services/CursoService.java
