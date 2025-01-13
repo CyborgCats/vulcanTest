@@ -34,7 +34,7 @@ public class AuthController {
         String username = credentials.get("username");
         String password = credentials.get("password");
 
-        // Verifica si el usuario existe
+        /* Usr exists? */
         Users user = userRepository.findByUsername(username)
                 .orElse(null);
 
@@ -42,15 +42,15 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "Credenciales incorrectas"));
         }
 
-        // Extrae los roles del usuario
+        /* GET All Roles */
         List<String> roles = user.getRoles().stream()
-                .map(Role::getName) // Extrae el atributo `name` de cada objeto `Role`
+                .map(Role::getName) /* GETs `name` from each `Role` */
                 .toList();
 
-        // Genera un token JWT
+        /* Generate JWT */
         String token = jwtService.generateToken(username, roles);
 
-        // Retorna el token
+        /* Returns token */
         return ResponseEntity.ok(Map.of("token", token));
     }
 

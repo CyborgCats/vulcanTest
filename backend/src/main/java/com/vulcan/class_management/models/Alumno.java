@@ -39,6 +39,6 @@ public class Alumno {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Alumno other = (Alumno) obj;
-        return id != null && id.equals(other.id); // Comparar solo por ID
+        return id != null && id.equals(other.id); /* Compare by ID */
     }
 }

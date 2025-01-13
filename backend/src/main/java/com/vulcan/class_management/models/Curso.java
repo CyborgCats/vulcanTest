@@ -28,7 +28,7 @@ public class Curso {
             joinColumns = @JoinColumn(name = "curso_id"),
             inverseJoinColumns = @JoinColumn(name = "alumno_id")
     )
-    @JsonManagedReference // Marca esta parte de la relación como principal para evitar recursión infinita
+    @JsonManagedReference /* MArk inverse relation to avoid infinite loop */
     private Set<Alumno> alumnos = new HashSet<>();
 
     public boolean puedeAgregarAlumno() {
@@ -37,7 +37,7 @@ public class Curso {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id); // Usar solo el ID para el hash
+        return Objects.hash(id);
     }
 
     @Override
@@ -45,6 +45,6 @@ public class Curso {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Curso other = (Curso) obj;
-        return id != null && id.equals(other.id); // Comparar solo por ID
+        return id != null && id.equals(other.id);
     }
 }
