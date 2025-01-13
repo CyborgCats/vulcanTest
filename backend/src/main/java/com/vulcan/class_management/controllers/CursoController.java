@@ -2,6 +2,8 @@ package com.vulcan.class_management.controllers;
 
 import com.vulcan.class_management.models.Curso;
 import com.vulcan.class_management.services.CursoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +16,14 @@ public class CursoController {
 
     public CursoController(CursoService cursoService) {
         this.cursoService = cursoService;
+    }
+
+    @PostMapping("/{cursoId}/asignar-alumno/{alumnoId}")
+    public ResponseEntity<Curso> asignarAlumno(
+            @PathVariable Long cursoId,
+            @PathVariable Long alumnoId) {
+        Curso cursoActualizado = cursoService.asignarAlumno(cursoId, alumnoId);
+        return ResponseEntity.ok(cursoActualizado);
     }
 
     @GetMapping
