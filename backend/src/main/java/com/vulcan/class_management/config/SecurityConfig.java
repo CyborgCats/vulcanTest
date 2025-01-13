@@ -3,6 +3,7 @@ package com.vulcan.class_management.config;
 import com.vulcan.class_management.security.JwtAuthFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,8 +26,12 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/api/auth/alumnos").authenticated()
-                        .requestMatchers("/api/auth/cursos").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/api/alumnos").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/alumnos").hasAnyAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/alumnos/**").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/cursos").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/cursos").hasAnyAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/cursos/**").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

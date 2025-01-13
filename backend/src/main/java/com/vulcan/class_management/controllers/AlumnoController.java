@@ -2,6 +2,7 @@ package com.vulcan.class_management.controllers;
 
 import com.vulcan.class_management.models.Alumno;
 import com.vulcan.class_management.services.AlumnoService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +23,7 @@ public class AlumnoController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Alumno saveAlumno(@RequestBody Alumno alumno) {
         return alumnoService.saveAlumno(alumno);
     }
