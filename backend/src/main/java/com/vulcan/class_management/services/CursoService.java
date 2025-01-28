@@ -5,7 +5,9 @@ import com.vulcan.class_management.models.Curso;
 import com.vulcan.class_management.repositories.AlumnoRepository;
 import com.vulcan.class_management.repositories.CursoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -23,13 +25,16 @@ public class CursoService {
                 .orElseThrow(() -> new RuntimeException("Alumno no encontrado"));
 
         if (!curso.puedeAgregarAlumno()) {
-            throw new RuntimeException("El curso ha alcanzado su límite de cupo");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El curso ha alcanzado su límite de cupo");
         }
 
         curso.getAlumnos().add(alumno);
         alumno.getCursos().add(curso);
 
-        return cursoRepository.save(curso);
+        cursoRepository.save(curso);
+        alumnoRepository.save(alumno);
+
+        return curso;
     }
 
     public CursoService(CursoRepository cursoRepository) {

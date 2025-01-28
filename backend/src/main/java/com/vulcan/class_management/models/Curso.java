@@ -1,5 +1,6 @@
 package com.vulcan.class_management.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -28,7 +29,7 @@ public class Curso {
             joinColumns = @JoinColumn(name = "curso_id"),
             inverseJoinColumns = @JoinColumn(name = "alumno_id")
     )
-    @JsonManagedReference /* MArk inverse relation to avoid infinite loop */
+    @JsonIgnoreProperties("cursos") /* MArk inverse relation to avoid infinite loop */
     private Set<Alumno> alumnos = new HashSet<>();
 
     public boolean puedeAgregarAlumno() {

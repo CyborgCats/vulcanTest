@@ -1,6 +1,7 @@
 package com.vulcan.class_management.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,7 +27,7 @@ public class Alumno {
     private String genero;
 
     @ManyToMany(mappedBy = "alumnos")
-    @JsonBackReference /* MArk inverse relation to avoid infinite loop */
+    @JsonIgnoreProperties("alumnos")
     private Set<Curso> cursos = new HashSet<>();
 
     @Override
